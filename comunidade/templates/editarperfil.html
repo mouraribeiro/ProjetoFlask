@@ -40,7 +40,7 @@
                         {{ form.foto_perfil.label }}
                         {{ form.foto_perfil(class='form-control-file') }}
                         {% if form.foto_perfil.errors %}
-                            {% for form.foto_perfil.errors %}
+                            {% for erro in form.foto_perfil.errors %}
                         <span class="text-danger">{{ error }}</span><br>
                             {% endfor %}
                         {% endif %}
