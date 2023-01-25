@@ -32,6 +32,8 @@ class FormEditarPerfil(FlaskForm):
     foto_perfil = FileField('Atualizar foto', validators=[FileAllowed(['jpg', 'png'])])
     curso_sql = BooleanField('SQL')
     curso_python = BooleanField('Python')
+    curso_adobe = BooleanField('Adobe')
+    curso_powerBi = BooleanField('Power BI')
     botao_submit_editarperfil = SubmitField('Salvar')
 
     def validate_email(self, email):
