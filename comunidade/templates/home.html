@@ -2,10 +2,31 @@
 
 {% block content %}
 
-<div class="container">
-    <h1>Testando o flask</h1>
+<div class="container p-5">
+    {% for post in posts %}
+    <div class="row border mt-4 p-4 meupost">
+        <div class="col col-3">
+            <div class="image">
+                <img class="rounded pe-2"
+                     src="{{url_for('static', filename='fotos_perfil/{}'.format(post.autor.foto_perfil))}}"
+                     width="155">
+            </div>
+            <p class="mt-1">{{post.autor.username}}</p>
+            <div class="row justify-content-center">
+                <div class="col " >
+                    {% for curso in post.autor.cursos.split(";") %}
+                    <button class="btn btn-success mt-2" type="button" disabled> {{ curso }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col col-9">
+            <h3>{{post.titulo}}</h3>
+            <p>{{post.corpo}}</p>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-
 
 
 {% endblock %}
